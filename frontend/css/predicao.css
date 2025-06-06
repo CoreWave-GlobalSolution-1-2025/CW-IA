@@ -1,0 +1,179 @@
+/* Variáveis de cor */
+:root {
+    --cinza-escuro: #222;
+    --branco: #fff;
+    --verde-escuro: #11722e;
+    --verde-claro: #1e8c3e;
+    --cinza-claro: #f4f4f4;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--cinza-claro);
+    color: var(--cinza-escuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header (mantém o mesmo da home) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--cinza-escuro);
+    color: var(--branco);
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+.header-logo img {
+    height: 40px;
+    margin-right: 1rem;
+}
+.header-logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.header-nav a {
+    color: var(--branco);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main container */
+.main {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+/* Card de introdução */
+.section-intro, .section-form {
+    background: var(--verde-escuro);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.section-intro h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--cinza-escuro);
+}
+
+.section-intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Formulário */
+.section-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--cinza-escuro);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Botão */
+button {
+    padding: 0.9rem 1.5rem;
+    background: var(--cinza-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--cinza-claro);
+    color: var(--cinza-escuro);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: var(--cinza-escuro);
+    color: var(--branco);
+    margin-top: 3rem;
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    color: var(--cinza-escuro);
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 280px;
+    background-color: var(--verde-claro);
+    color: var(--cinza-escuro);
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* posição acima do ⓘ */
+    left: 50%;
+    margin-left: -140px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* ponta do balão */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

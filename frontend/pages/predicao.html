@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predição - CoreWave</title>
+    <link rel="stylesheet" href="../css/predicao.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">
+            <img src="../imgs/logo-corewave.png" alt="CoreWave Logo">
+            <span>CoreWave</span>
+        </div>
+        <nav class="header-nav">
+            <a href="home.html">Home</a>
+            <a href="https://github.com/seu-repositorio/corewave" target="_blank">Sobre</a>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <section class="section-intro">
+            <h1>Predição de Nível de Risco</h1>
+            <p>Preencha os dados do evento extremo para obter a predição de risco baseada no nosso modelo.</p>
+        </section>
+
+        <section class="section-form">
+            <h2>Informações do Evento</h2>
+            <form id="predictionForm">
+
+                <div class="form-group">
+                    <label for="disasterType">Tipo de Desastre</label>
+                    <select id="disasterType" required>
+                        <option value="">Selecione</option>
+                        <option value="Drought">Seca</option>
+                        <option value="Road">Rodovia</option>
+                        <option value="Flood">Enchente</option>
+                        <option value="Extreme temperature">Temperatura extrema</option>
+                        <option value="Fire (Miscellaneous)">Incêndio (Diversos)</option>
+                        <option value="Volcanic activity">Atividade vulcânica</option>
+                        <option value="Storm">Tempestade</option>
+                        <option value="Wildfire">Incêndio florestal</option>
+                        <option value="Earthquake">Terremoto</option>
+                        <option value="Rail">Ferrovia</option>
+                        <option value="Air">Aéreo</option>
+                        <option value="Collapse (Industrial)">Desabamento (Industrial)</option>
+                        <option value="Collapse (Miscellaneous)">Desabamento (Diversos)</option>
+                        <option value="Fire (Industrial)">Incêndio (Industrial)</option>
+                        <option value="Explosion (Miscellaneous)">Explosão (Diversos)</option>
+                        <option value="Epidemic">Epidemia</option>
+                        <option value="Water">Água</option>
+                        <option value="Mass movement (wet)">Movimento de massa (úmido)</option>
+                        <option value="Explosion (Industrial)">Explosão (Industrial)</option>
+                        <option value="Chemical spill">Derramamento químico</option>
+                        <option value="Gas leak">Vazamento de gás</option>
+                        <option value="Infestation">Infestação</option>
+                        <option value="Miscellaneous accident (General)">Acidente diverso (Geral)</option>
+                        <option value="Poisoning">Envenenamento</option>
+                        <option value="Mass movement (dry)">Movimento de massa (seco)</option>
+                        <option value="Industrial accident (General)">Acidente industrial (Geral)</option>
+                        <option value="Radiation">Radiação</option>
+                        <option value="Oil spill">Derramamento de óleo</option>
+                        <option value="Impact">Impacto</option>
+                        <option value="Animal incident">Incidente com animal</option>
+                        <option value="Glacial lake outburst flood">Inundação por ruptura de lago glacial</option>
+                    </select>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="startYear">Ano de Início (2020 - 2025)</label>
+                    <input type="number" id="startYear" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalDeaths">Total de Mortes</label>
+                    <input type="number" id="totalDeaths" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="noInjured">Número de Feridos</label>
+                    <input type="number" id="noInjured" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalAffected">Total de Afetados</label>
+                    <input type="number" id="totalAffected" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalDamage">Dano Total ('000 US$)</label>
+                    <input type="number" id="totalDamage" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="magnitude">
+                        Magnitude
+                        <span class="tooltip">
+                            ⓘ
+                            <span class="tooltiptext">
+                                Para terremotos: a magnitude na escala Richter ou escala de momento sísmico (Mw)<br><br>
+                                Para tempestades: a velocidade máxima dos ventos (em km/h ou m/s)<br><br>
+                                Para inundações: a altura da água (em metros)<br><br>
+                                Para incêndios: a área afetada (em hectares)<br><br>
+                                Para epidemias: pode representar o número de casos registrados ou a taxa de transmissão<br><br>
+                                Para desastres sem magnitude objetiva: o campo fica vazio ou é padronizado com zero (0)
+                            </span>
+                        </span>
+                    </label>
+                    <input type="number" id="magnitude" step="0.1" required>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="country">País</label>
+                    <select id="country" required>
+                        <option value="">Selecione um país</option>
+                        <option value="Djibouti">Djibuti</option>
+                        <option value="Sudan">Sudão</option>
+                        <option value="Somalia">Somália</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Brazil">Brasil</option>
+                        <option value="China">China</option>
+                        <option value="Egypt">Egito</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Iran (Islamic Republic of)">Irã</option>
+                        <option value="Indonesia">Indonésia</option>
+                        <option value="Mozambique">Moçambique</option>
+                        <option value="Nigeria">Nigéria</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Peru">Peru</option>
+                        <option value="South Africa">África do Sul</option>
+                        <option value="India">Índia</option>
+                        <option value="United States of America">Estados Unidos da América</option>
+                        <option value="Norway">Noruega</option>
+                        <option value="Côte d’Ivoire">Costa do Marfim</option>
+                        <option value="Romania">Romênia</option>
+                        <option value="Bulgaria">Bulgária</option>
+                        <option value="Libya">Líbia</option>
+                        <option value="Switzerland">Suíça</option>
+                        <option value="Réunion">Reunião</option>
+                        <option value="Philippines">Filipinas</option>
+                        <option value="Spain">Espanha</option>
+                        <option value="Pakistan">Paquistão</option>
+                        <option value="Germany">Alemanha</option>
+                        <option value="Ethiopia">Etiópia</option>
+                        <option value="Morocco">Marrocos</option>
+                        <option value="Botswana">Botsuana</option>
+                        <option value="Russian Federation">Federação Russa</option>
+                        <option value="Mongolia">Mongólia</option>
+                        <option value="Congo">Congo</option>
+                        <option value="Afghanistan">Afeganistão</option>
+                        <option value="United Republic of Tanzania">República Unida da Tanzânia</option>
+                        <option value="Lesotho">Lesoto</option>
+                        <option value="Kenya">Quênia</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Viet Nam">Vietnã</option>
+                        <option value="Italy">Itália</option>
+                        <option value="Thailand">Tailândia</option>
+                        <option value="Bosnia and Herzegovina">Bósnia e Herzegovina</option>
+                        <option value="Iceland">Islândia</option>
+                        <option value="Namibia">Namíbia</option>
+                        <option value="Colombia">Colômbia</option>
+                        <option value="Zimbabwe">Zimbábue</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Jordan">Jordânia</option>
+                        <option value="Eswatini">Essuatíni</option>
+                        <option value="Australia">Austrália</option>
+                        <option value="Zambia">Zâmbia</option>
+                        <option value="Paraguay">Paraguai</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Democratic Republic of the Congo">República Democrática do Congo</option>
+                        <option value="Hungary">Hungria</option>
+                        <option value="Bolivia (Plurinational State of)">Bolívia (Estado Plurinacional da)</option>
+                        <option value="Chad">Chade</option>
+                        <option value="Sierra Leone">Serra Leoa</option>
+                        <option value="Austria">Áustria</option>
+                        <option value="Niger">Níger</option>
+                        <option value="Malaysia">Malásia</option>
+                        <option value="Cameroon">Camarões</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Czechia">República Checa</option>
+                        <option value="Ukraine">Ucrânia</option>
+                        <option value="Japan">Japão</option>
+                        <option value="Panama">Panamá</option>
+                        <option value="Central African Republic">República Centro-Africana</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Türkiye">Turquia</option>
+                        <option value="Republic of Korea">República da Coreia</option>
+                        <option value="Serbia Montenegro">Sérvia e Montenegro</option>
+                        <option value="Bermuda">Bermudas</option>
+                        <option value="Ecuador">Equador</option>
+                        <option value="Saudi Arabia">Arábia Saudita</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="French Guiana">Guiana Francesa</option>
+                        <option value="Kazakhstan">Cazaquistão</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Micronesia (Federated States of)">Micronésia (Estados Federados da)</option>
+                        <option value="Netherlands (Kingdom of the)">Países Baixos (Reino dos)</option>
+                        <option value="United Kingdom of Great Britain and Northern Ireland">Reino Unido da Grã-Bretanha e Irlanda do Norte</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Belarus">Bielorrússia</option>
+                        <option value="Uruguay">Uruguai</option>
+                        <option value="Mexico">México</option>
+                        <option value="Tunisia">Tunísia</option>
+                        <option value="Greece">Grécia</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Liberia">Libéria</option>
+                        <option value="Croatia">Croácia</option>
+                        <option value="Cyprus">Chipre</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Nicaragua">Nicarágua</option>
+                        <option value="Guinea">Guiné</option>
+                        <option value="Ghana">Gana</option>
+                        <option value="France">França</option>
+                        <option value="Lao People's Democratic Republic">República Democrática Popular do Laos</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Canada">Canadá</option>
+                        <option value="China, Hong Kong Special Administrative Region">China, Região Administrativa Especial de Hong Kong</option>
+                        <option value="Cambodia">Camboja</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Mauritania">Mauritânia</option>
+                        <option value="Bhutan">Butão</option>
+                        <option value="Ireland">Irlanda</option>
+                        <option value="Taiwan (Province of China)">Taiwan (Província da China)</option>
+                        <option value="Algeria">Argélia</option>
+                        <option value="Rwanda">Ruanda</option>
+                        <option value="Bahrain">Bahrein</option>
+                        <option value="Slovakia">Eslováquia</option>
+                        <option value="New Zealand">Nova Zelândia</option>
+                        <option value="Latvia">Letônia</option>
+                        <option value="Yemen">Iêmen</option>
+                        <option value="Democratic People's Republic of Korea">República Popular Democrática da Coreia</option>
+                        <option value="Iraq">Iraque</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Azerbaijan">Azerbaijão</option>
+                        <option value="North Macedonia">Macedônia do Norte</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Venezuela (Bolivarian Republic of)">Venezuela (República Bolivariana da)</option>
+                        <option value="Singapore">Singapura</option>
+                        <option value="Kyrgyzstan">Quirguistão</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Georgia">Geórgia</option>
+                        <option value="Tajikistan">Tajiquistão</option>
+                        <option value="Papua New Guinea">Papua Nova Guiné</option>
+                        <option value="Lebanon">Líbano</option>
+                        <option value="Syrian Arab Republic">República Árabe da Síria</option>
+                        <option value="Republic of Moldova">República da Moldávia</option>
+                        <option value="Turkmenistan">Turcomenistão</option>
+                        <option value="Poland">Polônia</option>
+                        <option value="Marshall Islands">Ilhas Marshall</option>
+                        <option value="Equatorial Guinea">Guiné Equatorial</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Gambia">Gâmbia</option>
+                        <option value="Puerto Rico">Porto Rico</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Uzbekistan">Uzbequistão</option>
+                        <option value="Armenia">Armênia</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Netherlands Antilles">Antilhas Holandesas</option>
+                        <option value="Guadeloupe">Guadalupe</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="Timor-Leste">Timor Leste</option>
+                        <option value="Saint Helena">Santa Helena</option>
+                        <option value="Denmark">Dinamarca</option>
+                        <option value="Estonia">Estônia</option>
+                        <option value="Dominican Republic">República Dominicana</option>
+                        <option value="United Arab Emirates">Emirados Árabes Unidos</option>
+                    </select>                
+                </div>
+
+                <button type="submit">Prever Nível de Risco</button>
+            </form>
+
+            <div id="resultado" style="margin-top: 1.5rem; font-size: 1.2rem;"></div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 CoreWave. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>

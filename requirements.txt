@@ -1,3 +1,7 @@
 pandas
 openpyxl
 scikit-learn
+matplotlib
+seaborn
+flask
+flask-cors
