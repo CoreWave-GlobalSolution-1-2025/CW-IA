@@ -61,6 +61,12 @@ frontend/pages/home.html
 A página permitirá ao usuário informar os dados de um desastre e consultar a previsão de nível de risco.
 ---
 
+## Participantes
+
+- João Alves 559369
+- Juan Pablo 560445
+- Matheus Mariotto 560276
+
 ## 📌 Observação
 
 Não se esqueça de rodar o notebook sempre que atualizar os dados ou quiser treinar um novo modelo.
